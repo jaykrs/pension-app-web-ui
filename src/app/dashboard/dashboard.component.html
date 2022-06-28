@@ -1,0 +1,94 @@
+
+
+
+
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Record <div class="text-center float-right">
+          <button type="button" class="btn btn-primary btn-sm" (click)="openModal(exampleModalContent)">Add<i class="mdi mdi-account-plus  ml-1"></i></button>
+        </div></h4>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>
+                  SPARSH PPO NO.
+                </th>
+                <th>
+                  PENSIONER NAME
+
+                </th>
+                <th>
+                  SERVICE
+
+                </th>
+                <th>
+                  EMAIL ID
+
+                </th>
+                <th>
+                  MOBILE NO
+
+                </th>
+                <th>STATE NAME
+                </th>
+                <th>DISTRICT NAME
+                </th>
+                <th>ADDRESS
+                </th>
+                <th>AADHAR NO
+                </th>
+                <th>DLC END DATE
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+             
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal starts -->
+  
+  <ng-template class="modal fade" #exampleModalContent let-modal>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="forms-sample">
+          <div class="form-group">
+            <label for="exampleInputUsername1">Username</label>
+            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputConfirmPassword1">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+          </div>
+          
+         
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="modal.close()">Submit</button>
+        <button type="button" class="btn btn-light" data-dismiss="modal" (click)="modal.close()">Cancel</button>
+      </div>
+    </div>
+  </ng-template>
