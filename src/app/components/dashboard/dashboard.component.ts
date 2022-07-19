@@ -140,7 +140,9 @@ console.log(this.DocObjectArray)
       // this.DocObjectArray.pop();
       let lastElement1 = this.DocObjectArray.slice(-1);
    var blob = lastElement1[0].slice(0, lastElement1[0].size, lastElement1[0].type)
-var newFile = new File([blob], this.filenametocreate+".txt", {type: lastElement1[0].type});
+   var fileType = lastElement1[0].name.split(".");
+   console.log(fileType[1]);
+var newFile = new File([blob], this.filenametocreate+"."+fileType[1], {type: lastElement1[0].type});
 console.log(newFile)
       const formData: FormData = new FormData();
       
