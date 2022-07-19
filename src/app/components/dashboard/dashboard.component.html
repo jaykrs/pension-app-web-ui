@@ -1,0 +1,185 @@
+<div class="card mt-3">
+  <div class="float-start">
+    <button type="button" class="btn btn-light m-1" (click)="handleBack()" ><i class="bi bi-arrow-left"  style="font-size: 1.5rem;"></i></button>
+  </div>
+ 
+  <div class="card-body table-responsive">
+    <!-- <a href="#" class="btn btn-primary float-end"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Pensioner <i class="bi bi-person-plus-fill"></i></a> -->
+
+    <table class="table table-sm table-bordered">
+      <thead class="table-dark">
+        <tr>
+            <th>SL NO.</th>
+          <th>SPARSH PPO NO.</th>
+          <th>PENSIONER NAME</th>
+          <th>SERVICE</th>
+          <th>EMAIL ID</th>
+          <th>MOBILE NO</th>
+          <th>STATE NAME</th>
+          <th>DISTRICT NAME</th>
+          <th>Remarks</th>
+          <th>AADHAR NO</th>
+          <th>DLC END DATE</th>
+          <th>Village</th>
+          <th>Post Office</th>
+          <th>Tehsil</th>
+          <th>Pin</th>
+          <th>Manage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dataFetch,index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.sparshPpoNo}}</td>
+            <td>{{item.pensionerName}}</td>
+            <td>{{item.service}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.mobile}}</td>
+            <td>{{item.state}}</td>
+            <td>{{item.district}}</td>
+            <td style="font-size:0.8rem">{{item.remarks}}</td>
+            <td>{{item.aadhar}}</td>
+            <td>{{item.dlcEndDt}}</td>
+            <td>{{item.village}}</td>
+            <td>{{item.postOffice}}</td>
+            <td>{{item.tehsil}}</td>
+            <td>{{item.pin}}</td>
+            
+            <td>
+              <div class="btn-group" role="group">
+              <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
+                (click)="edit(item)" > <i class="bi bi-pencil-square"></i></button>
+                <!-- <button type="button" class="btn btn-danger btn-sm ms-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
+                (click)="edit(item)" > <i class="bi bi-trash"></i></button> -->
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"   >
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Pensioner Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="handleCancel()" #closeAddExpenseModal1 ></button>
+          <!-- <button type="button" class="btn-close" data-dismiss="modal"  #closeAddExpenseModal>×</button> -->
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="addEditBankFb" autocomplete="off" novalidate>
+                <div class="row mb-2">
+                    <div class="col">
+                      <label for="">SPARSH PPO NO</label>
+                      <input type="text" class="form-control" formControlName="sparshPpoNo" placeholder="SPARSH PPO NO" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <label for="">PENSIONER NAME</label>
+                      <input formControlName="pensionerName" type="text" class="form-control" placeholder="PENSIONER NAME" aria-label="Last name">
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label for="">Service</label>
+                      <input formControlName="service" type="text" class="form-control" placeholder="Service" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <label for="">Email</label>
+                      <input formControlName="email" type="email" class="form-control" placeholder="Email id" aria-label="Last name">
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label for="">Mobile no</label>
+                      <input formControlName="mobile" type="number" class="form-control" placeholder="Mobile no" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <label for="">State</label>
+                      <input formControlName="state" type="text" class="form-control" placeholder="State" aria-label="Last name">
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label for="">District</label>
+                      <input formControlName="district" type="text" class="form-control" placeholder="District" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <!-- <label for="">SPARSH PPO NO</label> -->
+                      <!-- <input formControlName="State" type="text" class="form-control" placeholder="Address" aria-label="Last name"> -->
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label for="">Aadhar no</label>
+                      <input formControlName="aadhar" type="text" class="form-control" placeholder="Aadhar no" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <label for="">Dcl end date</label>
+                      <input formControlName="dlcEndDt" type="date"  class="form-control" placeholder="DLC end date" aria-label="Last name">
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label for="">Village</label>
+                      <input formControlName="village" type="text" class="form-control" placeholder="Village" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <label for="">Post office</label>
+                      <input formControlName="postOffice" type="text" class="form-control" placeholder="Post Office" aria-label="Last name">
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label for="">Tehsil</label>
+                      <input formControlName="tehsil" type="text" class="form-control" placeholder="Tehsil" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <label for="">Pin</label>
+                      <input formControlName="pin" type="text" class="form-control" placeholder="Pin" aria-label="Last name">
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label for="">Remarks</label>
+                      <input formControlName="remarks" type="text" class="form-control" placeholder="Remarks" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="success" >
+                        <strong>Successfully uploaded</strong>Tap on documents to view
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="file"   class="form-control" id="inputGroupFile02" (change)="onFileSelectedOriginalBG($event)" multiple="multiple">
+                        <button type="button" class="btn btn-primary input-group-text" for="inputGroupFile02"  (click)="fileUploadAPI()"  [disabled]="!activateUpload" >Upload</button>
+                      </div>
+                      
+                    </div>
+
+                  </div>
+                  
+                  <a class="btn btn-info" data-bs-toggle="collapse" *ngIf="UploadedData.length>0" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Documents
+                  </a>
+                  <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                      <a href={{item}} class="link-info" *ngFor="let item of UploadedData">{{item}}</a>
+                     <!-- <p  ></p> -->
+                    </div>
+                  </div>
+                  
+            </form>
+        </div>
+        <div class="modal-footer ">
+          <div *ngIf="!loader">
+            <button type="button" class="btn btn-primary" [disabled]="!addEditBankFb.valid" 
+            (click)="update(addEditBankFb.value)" *ngIf="editable">Update</button>
+          </div>
+         
+          <div class="spinner-border text-success" role="status" *ngIf="loader" >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

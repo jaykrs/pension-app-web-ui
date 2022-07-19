@@ -1,0 +1,37 @@
+
+<div class="d-flex align-items-center auth px-0">
+    <div class="row w-100 mx-0">
+      <div class="col-lg-4 mx-auto">
+        <div class="auth-form  py-5 px-4 px-sm-5">
+     
+        
+          <div class="card">
+            <div class="card-body">
+            <div class="form-group mb-4">
+                <select class="form-control form-control-lg" id="exampleFormControlSelect1"  (change)="onChangeState($event.target.value)" >
+                  <!-- -->
+                <option value="undefined" selected disabled >State</option>
+                <option value={{S.state}} *ngFor="let S of State;">
+                  {{S.state}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="form-control form-control-lg" id="exampleFormControlSelect1" (change)="onChangeCity($event.target.value)">
+              <option value="undefined" selected disabled>District</option>
+              <option value={{C.district}} *ngFor="let C of District;">
+                {{C.district}}</option>
+            </select>
+          </div>
+           
+           
+            <div class="d-grid gap-2 pt-3">
+          
+                <button class="btn btn-primary" type="button" (click)="naviagte()" >Search</button>
+              </div>
+          
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div> 
