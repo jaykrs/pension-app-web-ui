@@ -120,6 +120,29 @@ export class DashboardComponent implements OnInit {
    this.inc=this.UploadedData.length+1:this.inc=1;
    console.log(this.inc)
   }
+  // delete
+  delete(payload){
+axios.delete(`http://demo.armscert.com/api/Pensioner/DeletePensioner/${payload.id}`).then((response) => {
+console.log(response);
+axios
+          .get(
+            `http://demo.armscert.com/api/Pensioner/GetPensionerByStateDistrict?State=${payload.state}&District=${payload.district}`
+          )
+          .then((response) => {
+            sessionStorage.setItem('PData', JSON.stringify(response.data));
+            this.dataFetch = JSON.parse(sessionStorage.getItem('PData'));
+            // window.location.reload();
+            this.closeAddExpenseModal.nativeElement.click();
+            this.loader=false;
+            this.DocObjectArray = [];
+          })
+          .catch((error) => {
+            //console.log(error);
+          });
+}).catch((error) => {
+console.log(error)
+})
+  }
   handleCancel() {
     
     this.editable = false;

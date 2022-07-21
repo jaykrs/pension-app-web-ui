@@ -24,6 +24,7 @@
           <th>Post Office</th>
           <th>Tehsil</th>
           <th>Pin</th>
+          <th>Updated</th>
           <th>Manage</th>
         </tr>
       </thead>
@@ -44,11 +45,15 @@
             <td>{{item.postOffice}}</td>
             <td>{{item.tehsil}}</td>
             <td>{{item.pin}}</td>
+            <td><span class="badge bg-success" *ngIf="item.isUpdated==='True'" >Updated</span>
+              <span class="badge bg-danger" *ngIf="item.isUpdated!=='True'" >Not Updated</span></td>
             
             <td>
               <div class="btn-group" role="group">
               <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
                 (click)="edit(item)" > <i class="bi bi-pencil-square"></i></button>
+                <button type="button" class="btn btn-danger btn-sm" 
+                (click)="delete(item)" > <i class="bi bi-trash"></i></button>
                 <!-- <button type="button" class="btn btn-danger btn-sm ms-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
                 (click)="edit(item)" > <i class="bi bi-trash"></i></button> -->
               </div>
